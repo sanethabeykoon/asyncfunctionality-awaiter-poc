@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import org.testng.Assert;
+
 import com.webflow.util.Awaiter;
 
 public class ProblemsPage {
@@ -30,7 +32,11 @@ public class ProblemsPage {
 	private WebElement nextButton;
 	
 	public void pickProblemCategory() {
-		awaiter.awaitForElement(problemCategory, 1, 15);
+		boolean readyState = awaiter.awaitForElement(problemCategory, 1, 15);
+		
+		System.out.println("Element ready state: " + readyState);
+		Assert.assertEquals(readyState, true);
+		
 		problemCategory.click();
 	}
 	

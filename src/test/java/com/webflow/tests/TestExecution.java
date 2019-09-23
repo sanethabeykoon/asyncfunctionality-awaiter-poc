@@ -24,7 +24,7 @@ public class TestExecution {
 	
 	@Test
 	public void executeTest() {
-		driver.get("https://url.com/");
+		driver.get("http://url.com");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		HomePage homePage = new HomePage(driver);
